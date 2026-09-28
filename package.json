@@ -1,0 +1,16 @@
+{
+  "name": "gentrification-painter",
+  "version": "0.1.0",
+  "description": "A cellular-automata painting of displacement — cheap studios turn to galleries, artists get priced out.",
+  "type": "module",
+  "scripts": {
+    "dev": "npx serve . -l 3000",
+    "format": "npx prettier --write .",
+    "format:check": "npx prettier --check ."
+  },
+  "devDependencies": {
+    "prettier": "^3.3.3",
+    "serve": "^14.2.3"
+  },
+  "license": "MIT"
+}
