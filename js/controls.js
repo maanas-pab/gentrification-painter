@@ -26,11 +26,20 @@ function buildUI() {
         <div><label>Displaced</label><b id="stat-d">0</b></div>
       </div>
       <div class="row">
+        <label>Neighborhood
+          <select id="preset">
+            <option value="kreuzberg">Kreuzberg / tipping point</option>
+            <option value="soho">SoHo / slow burn</option>
+            <option value="hyper">Hyper / flashover</option>
+          </select>
+        </label>
         <label>Pressure <input id="pressure" type="range" min="5" max="90" value="35" /></label>
         <button id="pause">Pause</button>
         <button id="reset">Re-seed</button>
+        <button id="csv" title="Download displacement log">CSV</button>
       </div>
-      <p class="hint">Drag pressure up to gentrify faster. Reset brings the artists back.</p>
+      <canvas id="spark" width="880" height="56"></canvas>
+      <p class="hint">Drag pressure up to gentrify faster. Reset brings the artists back. CSV downloads every displacement (x, y, rent, income, tick).</p>
     </div>`;
   document.getElementById("pressure").oninput = (e) => {
     Automata.pressure = e.target.value / 1000;
@@ -39,10 +48,30 @@ function buildUI() {
     window.__paused = !window.__paused;
     e.target.textContent = window.__paused ? "Play" : "Pause";
   };
-  document.getElementById("reset").onclick = () => {
+  const applyPreset = (id) => {
+    const map = {
+      soho: { pressure: 0.022, artists: 260, seedBlobs: 2 },
+      kreuzberg: { pressure: 0.035, artists: 220, seedBlobs: 4 },
+      hyper: { pressure: 0.06, artists: 180, seedBlobs: 7 },
+    };
+    const p = map[id] || map.kreuzberg;
+    Automata.pressure = p.pressure;
+    Automata.seedBlobs = p.seedBlobs;
+    document.getElementById("pressure").value = Math.round(p.pressure * 1000);
     Automata.init(48, 48);
-    seedArtists(220);
+    seedArtists(p.artists);
     window.__events = [];
+    window.__history = [];
+  };
+  document.getElementById("preset").onchange = (e) => applyPreset(e.target.value);
+  document.getElementById("reset").onclick = () => applyPreset(document.getElementById("preset").value);
+  document.getElementById("csv").onclick = () => {
+    const rows = ["x,y,rent,income,tick", ...window.__events.map((e) => `${e.x},${e.y},${e.rent.toFixed(3)},${e.income.toFixed(3)},${e.t}`)];
+    const blob = new Blob([rows.join("\n")], { type: "text/csv" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "displacement-log.csv";
+    a.click();
   };
 }
 
