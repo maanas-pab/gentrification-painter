@@ -1,0 +1,28 @@
+{
+  "presets": [
+    {
+      "id": "soho",
+      "name": "SoHo / slow burn",
+      "pressure": 0.022,
+      "artists": 260,
+      "seedBlobs": 2,
+      "note": "Few galleries, slow spread. Artists hold on longer."
+    },
+    {
+      "id": "kreuzberg",
+      "name": "Kreuzberg / tipping point",
+      "pressure": 0.035,
+      "artists": 220,
+      "seedBlobs": 4,
+      "note": "Default. Balanced until it isn't."
+    },
+    {
+      "id": "hyper",
+      "name": "Hyper-gentrified / flashover",
+      "pressure": 0.06,
+      "artists": 180,
+      "seedBlobs": 7,
+      "note": "Galleries everywhere at once. Watch the color drain."
+    }
+  ]
+}
