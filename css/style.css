@@ -1,0 +1,48 @@
+:root {
+  --bg: #0e0e10;
+  --ink: #f2f0ea;
+  --muted: #a8a5a0;
+  --line: #26262b;
+  --accent: #ffd166;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: ui-sans-system, -apple-system, "Helvetica Neue", Arial, sans-serif;
+}
+
+.wrap {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 28px 18px 60px;
+}
+
+header h1 {
+  margin: 0 0 6px;
+  font-size: clamp(28px, 5vw, 46px);
+  letter-spacing: -0.02em;
+}
+
+.sub {
+  margin: 0 0 18px;
+  color: var(--muted);
+}
+
+#stage {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #141416;
+}
+
+#stage canvas {
+  display: block;
+  width: 100% !important;
+  height: auto !important;
+}
