@@ -7,10 +7,22 @@ const PALETTE = ["#ef476f", "#ffd166", "#06d6a0", "#118ab2", "#c77dff"];
 function setup() {
   const c = createCanvas(576, 576);
   c.parent("stage");
+  c.elt.setAttribute("role", "img");
+  c.elt.setAttribute("aria-label", "Grid neighborhood gentrifying from grey to white, colored artist dots disappearing");
   Automata.init(48, 48);
   seedArtists(220);
   frameRate(12);
   noStroke();
+}
+
+function keyPressed() {
+  if (key === " ") {
+    window.__paused = !window.__paused;
+    const b = document.getElementById("pause");
+    if (b) b.textContent = window.__paused ? "Play" : "Pause";
+    return false;
+  }
+  if (key === "r" || key === "R") document.getElementById("reset")?.click();
 }
 
 function seedArtists(n) {
