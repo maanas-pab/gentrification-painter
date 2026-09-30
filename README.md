@@ -11,6 +11,10 @@ A tiny cellular-automata painting about displacement — the whole economy is
 
 **Live:** https://maanas-pab.github.io/gentrification-painter/
 
+| studios (t=0, 220 artists)                                                  | tipping point (t=35, 166 left)                                                  | galleries (t=120, 0 left)                                            |
+| --------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| ![studios — grey grid full of colored artist dots](docs/images/studios.png) | ![tipping — white galleries spreading, color draining](docs/images/tipping.png) | ![galleries — empty white grid, art gone](docs/images/galleries.png) |
+
 ## Run it
 
 No build. Just open it:
