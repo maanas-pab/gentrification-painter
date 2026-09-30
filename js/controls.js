@@ -13,8 +13,32 @@ window.__stats = ({ gentrified, alive, displaced }) => {
     g.textContent = `${((gentrified / (48 * 48)) * 100).toFixed(1)}%`;
     document.getElementById("stat-a").textContent = String(alive);
     document.getElementById("stat-d").textContent = String(displaced);
+    window.__history = window.__history || [];
+    window.__history.push(alive);
+    if (window.__history.length > 220) window.__history.shift();
+    drawSpark();
   }
 };
+
+function drawSpark() {
+  const c = document.getElementById("spark");
+  if (!c) return;
+  const ctx = c.getContext("2d");
+  const h = window.__history || [];
+  ctx.clearRect(0, 0, c.width, c.height);
+  ctx.strokeStyle = "#ffd166";
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  h.forEach((v, i) => {
+    const x = (i / 220) * c.width;
+    const y = c.height - (v / 260) * c.height;
+    i ? ctx.lineTo(x, y) : ctx.moveTo(x, y);
+  });
+  ctx.stroke();
+  ctx.fillStyle = "#a8a5a0";
+  ctx.font = "11px sans-serif";
+  ctx.fillText("artists alive →", 8, 14);
+}
 
 function buildUI() {
   const el = document.getElementById("ui");

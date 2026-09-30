@@ -119,6 +119,23 @@ input[type="range"] {
   vertical-align: baseline;
 }
 
+select {
+  background: #222228;
+  color: var(--ink);
+  border: 1px solid #34343c;
+  border-radius: 8px;
+  padding: 6px 8px;
+}
+
+#spark {
+  width: 100%;
+  height: 56px;
+  margin-top: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #101013;
+}
+
 footer {
   margin-top: 26px;
   color: var(--muted);
