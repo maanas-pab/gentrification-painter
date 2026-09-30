@@ -88,9 +88,15 @@ function buildUI() {
     window.__history = [];
   };
   document.getElementById("preset").onchange = (e) => applyPreset(e.target.value);
-  document.getElementById("reset").onclick = () => applyPreset(document.getElementById("preset").value);
+  document.getElementById("reset").onclick = () =>
+    applyPreset(document.getElementById("preset").value);
   document.getElementById("csv").onclick = () => {
-    const rows = ["x,y,rent,income,tick", ...window.__events.map((e) => `${e.x},${e.y},${e.rent.toFixed(3)},${e.income.toFixed(3)},${e.t}`)];
+    const rows = [
+      "x,y,rent,income,tick",
+      ...window.__events.map(
+        (e) => `${e.x},${e.y},${e.rent.toFixed(3)},${e.income.toFixed(3)},${e.t}`,
+      ),
+    ];
     const blob = new Blob([rows.join("\n")], { type: "text/csv" });
     const a = document.createElement("a");
     a.href = URL.createObjectURL(blob);

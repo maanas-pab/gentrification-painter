@@ -8,7 +8,10 @@ function setup() {
   const c = createCanvas(576, 576);
   c.parent("stage");
   c.elt.setAttribute("role", "img");
-  c.elt.setAttribute("aria-label", "Grid neighborhood gentrifying from grey to white, colored artist dots disappearing");
+  c.elt.setAttribute(
+    "aria-label",
+    "Grid neighborhood gentrifying from grey to white, colored artist dots disappearing",
+  );
   Automata.init(48, 48);
   seedArtists(220);
   frameRate(12);

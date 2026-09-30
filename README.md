@@ -35,11 +35,11 @@ artist displaced if rent[x,y] > income
 
 ## Controls
 
-| Control      | What it does                                              |
-| ------------ | --------------------------------------------------------- |
-| Neighborhood | SoHo (slow), Kreuzberg (tipping point), Hyper (flashover) |
-| Pressure     | Gentrification speed. Crank it = rezoning event           |
-| Space / R    | Pause / re-seed (keyboard)                                |
+| Control      | What it does                                                |
+| ------------ | ----------------------------------------------------------- |
+| Neighborhood | SoHo (slow), Kreuzberg (tipping point), Hyper (flashover)   |
+| Pressure     | Gentrification speed. Crank it = rezoning event             |
+| Space / R    | Pause / re-seed (keyboard)                                  |
 | CSV          | Downloads `displacement-log.csv` (x, y, rent, income, tick) |
 
 Live stats: **% gentrified**, **artists left**, **displaced**, plus an

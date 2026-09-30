@@ -14,7 +14,12 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--ink);
-  font-family: ui-sans-system, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  font-family:
+    ui-sans-system,
+    -apple-system,
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
 }
 
 .wrap {
