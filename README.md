@@ -9,6 +9,8 @@ A tiny cellular-automata painting about displacement — the whole economy is
 
 ![stack](https://img.shields.io/badge/p5.js-1.11.3-ED225D) ![license](https://img.shields.io/badge/license-MIT-green)
 
+**Live:** https://maanas-pab.github.io/gentrification-painter/
+
 ## Run it
 
 No build. Just open it:
